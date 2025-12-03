@@ -57,10 +57,10 @@ function generateRevenueSeries(days) {
 
 function generateProductMix() {
     const base = [
-        { label: "Enterprise", value: randomInt(35, 45) },
-        { label: "Teams", value: randomInt(25, 35) },
-        { label: "Consumer", value: randomInt(15, 25) },
-        { label: "Services", value: randomInt(8, 15) }
+        { label: "Subscriptions", value: randomInt(38, 48) },
+        { label: "Managed Ops", value: randomInt(22, 32) },
+        { label: "Advisory", value: randomInt(14, 22) },
+        { label: "Support", value: randomInt(8, 16) }
     ];
     const total = base.reduce((sum, entry) => sum + entry.value, 0);
     return base.map(entry => ({ ...entry, ratio: entry.value / total }));
@@ -221,7 +221,7 @@ function updateDashboard() {
 
     const total = state.revenueSeries.reduce((sum, point) => sum + point.value, 0);
     revenueMeta.textContent = `${formatCurrency(total * 1000)} ${state.range}-day total`;
-    mixMeta.textContent = "Share of revenue by segment";
+    mixMeta.textContent = "Share of revenue by service line";
 }
 
 rangeFilter.addEventListener("change", updateDashboard);
