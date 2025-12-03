@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Business Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <header class="dashboard__header">
+            <div>
+                <p class="dashboard__eyebrow">Executive Overview</p>
+                <h1>Interactive Business Dashboard</h1>
+                <p class="dashboard__subtitle">Live sales, revenue, and customer health indicators</p>
+            </div>
+            <div class="dashboard__controls">
+                <label>
+                    Range
+                    <select id="rangeFilter">
+                        <option value="7">Last 7 days</option>
+                        <option value="30" selected>Last 30 days</option>
+                        <option value="90">Last 90 days</option>
+                    </select>
+                </label>
+                <button id="refreshButton" class="button">Refresh Now</button>
+            </div>
+        </header>
+
+        <section class="kpi-grid" id="kpiGrid">
+         
+        </section>
+
+        <section class="charts-grid">
+            <article class="panel">
+                <div class="panel__header">
+                    <h2>Revenue Trend</h2>
+                    <span class="panel__meta" id="revenueMeta">Loading…</span>
+                </div>
+                <canvas id="revenueChart" width="400" height="200"></canvas>
+            </article>
+            <article class="panel">
+                <div class="panel__header">
+                    <h2>Product Mix</h2>
+                    <span class="panel__meta" id="mixMeta">Loading…</span>
+                </div>
+                <canvas id="productChart" width="400" height="200"></canvas>
+            </article>
+        </section>
+
+        <section class="insights">
+            <article class="panel">
+                <div class="panel__header">
+                    <h2>Live Activity</h2>
+                    <span class="panel__meta" id="activityMeta">Updated moments ago</span>
+                </div>
+                <ul class="activity" id="activityFeed"></ul>
+            </article>
+            <article class="panel">
+                <div class="panel__header">
+                    <h2>Key Customers</h2>
+                    <span class="panel__meta">Account value and health</span>
+                </div>
+                <table class="table" id="customerTable">
+                    <thead>
+                        <tr>
+                            <th>Customer</th>
+                            <th>Value</th>
+                            <th>Health</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Populated by script.js -->
+                    </tbody>
+                </table>
+            </article>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
